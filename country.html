@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="country.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="country.js" defer></script>
+    <title>Country</title>
+</head>
+<body>
+    <header class="header-container">
+        <div class="header">
+            <h1 class="title"><a href="/">Where in the world?</a></h1>
+            <p class="themeChange"><i class="fa-solid fa-sun"></i>&nbsp;&nbsp;Dark Mode</p>
+        </div>        
+    </header>
+    <main>
+        <div class="country-detail-container">
+            <span class="back-btn" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i> Back</span>
+            <div class="country-details">
+                <img src="https://flagcdn.com/wf.svg" alt="flag">
+                <div class="details-container">
+                    <h1>Iceland</h1>
+                    <div class="details-info">
+                        <p><b>Native Name :</b> <span class="native-name"></span></p>
+                        <p><b>Population :</b> <span class="population"></span></p>
+                        <p><b>Region :</b> <span class="region"></span></p>
+                        <p><b>Sub Region :</b> <span class="sub-region"></span></p>
+                        <p><b>Capital :</b> <span class="capital"></span></p>
+                        <p><b>Top Level Domain :</b> <span class="top-level-domain"></span></p>
+                        <p><b>Currency :</b> <span class="currency"></span></p>
+                        <p><b>Language :</b> <span class="language"></span></p>
+                    </div>
+                    <div class="border-countries">
+                        <p class="border"><b>Boder Countries :</b></p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
