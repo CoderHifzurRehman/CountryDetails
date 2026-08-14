@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country Details</title>
+    <title>Country Details Explorer</title>
     <link rel="stylesheet" href="style.css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="index.js" defer></script>
 </head>
@@ -19,44 +19,66 @@
 <body>
     <header class="header-container">
         <div class="header">
-            <h1 class="title"><a href="/">Country Details</a></h1>
-            <p class="themeChange"><i class="fa-solid fa-sun"></i>&nbsp;&nbsp;Dark Mode</p>
+            <h1 class="title">
+                <a href="index.html">
+                    <i class="fa-solid fa-earth-americas brand-icon"></i>
+                    <span>Where in the World?</span>
+                </a>
+            </h1>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+                <span class="theme-text">Dark Mode</span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <div class="search-filter-container">
-            <div class="search-container">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search for a Country .....">
-
+    <main class="main-content">
+        <div class="controls-container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search for a country..." autocomplete="off">
+                <i class="fa-solid fa-xmark clear-icon" id="clear-search" style="display: none;"></i>
             </div>
-            <select class="filter-container" id="filter-by-region">
-                <option hidden>Filter by Region</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">Americas</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-            </select>
-        </div>
-        <div class="countries-container">
-            <!-- <a href="#" class="country-card">
-                <img src="https://flagcdn.com/wf.svg" alt="flag">
-                <div class="country-info">
-                    <h3 class="country-name">Vatican</h3>
-                    <p><b>Population:111104</b></p>
-                    <p><b>Region:abc</b></p>
-                    <p><b>Capital:xyz</b></p>
+            
+            <div class="filter-group">
+                <div class="select-wrapper">
+                    <select id="filter-by-region" aria-label="Filter by Region">
+                        <option value="all">All Regions</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Americas">Americas</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                        <option value="Antarctic">Antarctic</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-icon"></i>
                 </div>
-            </a> -->
-            <div class="btnContainer">
 
+                <div class="select-wrapper">
+                    <select id="sort-by" aria-label="Sort Countries">
+                        <option value="name-asc">Sort: A to Z</option>
+                        <option value="name-desc">Sort: Z to A</option>
+                        <option value="pop-desc">Population: High to Low</option>
+                        <option value="pop-asc">Population: Low to High</option>
+                        <option value="area-desc">Area: Largest First</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
             </div>
+        </div>
 
+        <div class="status-bar">
+            <span id="country-count" class="count-badge">Loading...</span>
+        </div>
+
+        <div class="countries-container" id="countries-container">
+            <!-- Dynamic Country Cards or Skeletons rendered via index.js -->
         </div>
     </main>
 
+    <footer class="footer">
+        <p>Country Details Explorer &bull; Powered by REST Countries API</p>
+    </footer>
 </body>
 
 </html>
